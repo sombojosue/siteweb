@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BitAutomate - Création de site web</title>
+        <script
+            src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+        <script>
+      (function () {
+        emailjs.init("uLFFPF0djOShHXN9p"); // ⚠️ Remplace avec ton User ID EmailJS
+      })();
+
+      function sendEmail(e) {
+        e.preventDefault();
+
+        emailjs.sendForm("service_thnrb77", "template_utzg3fh", e.target).then(
+          function () {
+            alert("Merci ! Votre questionnaire a bien été envoyé.");
+             e.target.reset(); // ✅ Vide tous les champs du formulaire
+          },
+          function (error) {
+            alert("Erreur : " + JSON.stringify(error));
+          }
+        );
+      }
+    </script>
+        <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 950px;
+        margin: auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        animation: fadeIn 1.2s ease-in-out;
+      }
+      h1 {
+        text-align: center;
+        font-size: 28px;
+        color: #333;
+        margin-bottom: 20px;
+      }
+      h2 {
+        font-size: 20px;
+        margin-top: 30px;
+        color: #444;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 5px;
+      }
+      label {
+        font-weight: bold;
+        display: block;
+        margin: 12px 0 6px;
+        color: #555;
+      }
+      input,
+      select,
+      textarea {
+        width: 96%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        font-size: 15px;
+        transition: all 0.2s;
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: #74b9ff;
+        box-shadow: 0 0 8px rgba(116, 185, 255, 0.4);
+        outline: none;
+      }
+      textarea {
+        min-height: 120px;
+      }
+      button {
+        display: block;
+        background: linear-gradient(135deg, #74b9ff, #0984e3);
+        color: #fff;
+        padding: 14px 28px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 20px auto 0;
+        transition: background 0.3s ease;
+      }
+      button:hover {
+        background: linear-gradient(135deg, #0984e3, #74b9ff);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .container {
+          padding: 20px;
+        }
+        h1 {
+          font-size: 22px;
+        }
+        h2 {
+          font-size: 18px;
+        }
+        input,
+        select,
+        textarea {
+          font-size: 14px;
+          padding: 10px;
+        }
+        button {
+          width: 100%;
+          padding: 12px;
+          font-size: 15px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 10px;
+        }
+        .container {
+          padding: 15px;
+          border-radius: 10px;
+        }
+        h1 {
+          font-size: 20px;
+        }
+        h2 {
+          font-size: 16px;
+        }
+        input,
+        select,
+        textarea {
+          font-size: 13px;
+          padding: 8px;
+        }
+        button {
+          font-size: 14px;
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Questionnaire - Création de votre site web</h1>
+            <p style="text-align: center; color: #666">
+                Merci de remplir ce formulaire pour nous aider à concevoir un
+                site
+                internet qui correspond parfaitement à vos besoins.
+            </p>
+
+            <form onsubmit="sendEmail(event)">
+                <!-- 1. Contact -->
+                <h2>1. Informations de contact</h2>
+                <label>Nom complet *</label>
+                <input type="text" name="nom" required />
+                <label>Nom d'Entreprise / Marque *</label>
+                <input type="text" name="entreprise" required />
+                <label>Adresse E-mail *</label>
+                <input type="email" name="email" required />
+                <label>Numéro de téléphone *</label>
+                <input type="tel" name="telephone" required />
+                <label>Avez-vous un site web existant (si oui saisir la)</label>
+                <input type="text" name="site_web" />
+
+                <!-- 2. Activité -->
+                <h2>2. Votre activité</h2>
+                <label>Secteur d’activité *</label>
+                <input type="text" name="secteur" required />
+                <label>Décrivez votre entreprise *</label>
+                <textarea name="description" required></textarea>
+                <label>Les personnes cible qui vont visite le site *</label>
+                <textarea name="audience" required></textarea>
+
+                <!-- 3. Objectifs -->
+                <h2>3. Objectifs du site</h2>
+                <label>Objectifs principaux *</label>
+                <textarea name="objectifs" required></textarea>
+                <label>Fonctionnalités souhaitées *</label>
+                <textarea name="fonctionnalites" required></textarea>
+
+                <!-- 4. Design -->
+                <h2>4. Préférences graphiques et design</h2>
+                <label>Style souhaité *</label>
+                <select name="style" required>
+                    <option value>-- Sélectionnez --</option>
+                    <option>Moderne & épuré</option>
+                    <option>Professionnel & corporate</option>
+                    <option>Créatif & coloré</option>
+                    <option>Minimaliste & simple</option>
+                    <option>Autre</option>
+                </select>
+                <label>Couleurs à privilégier</label>
+                <input type="text" name="couleurs"
+                    placeholder="(ex: bleu et blanc)" />
+                <label>Exemples de sites qui vous plaisent</label>
+                <textarea name="inspirations"></textarea>
+                <label>Avez-vous déjà un logo ? *</label>
+                <select name="logo" required>
+                    <option value>-- Sélectionnez --</option>
+                    <option>Oui</option>
+                    <option>Non</option>
+                    <option>J’ai besoin d’aide pour le créer</option>
+                </select>
+
+                <!-- 5. Contenu -->
+                <h2>5. Contenu</h2>
+                <label>Contenu disponible *</label>
+                <select name="contenu" required>
+                    <option value>-- Sélectionnez --</option>
+                    <option>Oui, tout est prêt</option>
+                    <option>Partiellement prêt</option>
+                    <option>Non, j’ai besoin d’aide</option>
+                </select>
+                <label>Pages principales *</label>
+                <textarea name="pages" required></textarea>
+
+                <!-- 6. Délai -->
+                <h2>6. Délai</h2>
+                <label>Date de lancement souhaitée *</label>
+                <input type="date" name="date_lancement" required />
+
+                <!-- 7. Divers -->
+                <h2>7. Informations complémentaires</h2>
+                <label>Souhaitez-vous un suivi / maintenance ? *</label>
+                <select name="maintenance" required>
+                    <option value>-- Sélectionnez --</option>
+                    <option>Oui</option>
+                    <option>Non</option>
+                    <option>À discuter</option>
+                </select>
+                <label>Remarques ou besoins spécifiques</label>
+                <textarea name="remarques"></textarea>
+
+                <button type="submit">Envoyer le questionnaire</button>
+            </form>
+        </div>
+    </body>
+</html>
